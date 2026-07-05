@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--card-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-highlight: var(--highlight);
+  --color-income: var(--income);
+  --color-expense: var(--expense);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--expense);
+  --color-destructive-foreground: #ffffff;
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 8px);
+  --radius-sm: calc(var(--radius) - 12px);
+
+  --shadow-soft: 0 10px 40px -10px var(--shadow-color);
+  --shadow-lift: 0 20px 50px -15px var(--shadow-color);
+}
+
+@layer base {
+  :root {
+    --background: #FFF8F2;
+    --foreground: #2F2F33;
+    
+    --card: #FFFFFF;
+    --card-foreground: #2F2F33;
+    
+    --primary: #D97757;
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: #8B7CF8;
+    --secondary-foreground: #FFFFFF;
+    
+    --highlight: #F6D6B8;
+    --income: #4CAF7D;
+    --expense: #E96A5F;
+    
+    --muted: #f9f5f0;
+    --muted-foreground: #8A8A93;
+    
+    --accent: #F6D6B8;
+    --accent-foreground: #2F2F33;
+    
+    --border: #EFE7DE;
+    --input: #EFE7DE;
+    --ring: #D97757;
+    
+    --radius: 24px;
+    --shadow-color: rgba(217, 119, 87, 0.08);
+  }
+
+  .dark {
+    --background: #1C1C1E;
+    --foreground: #F2F2F7;
+    
+    --card: #2C2C2E;
+    --card-foreground: #F2F2F7;
+    
+    --primary: #D97757;
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: #8B7CF8;
+    --secondary-foreground: #FFFFFF;
+    
+    --highlight: #F6D6B8;
+    --income: #4CAF7D;
+    --expense: #E96A5F;
+    
+    --muted: #3A3A3C;
+    --muted-foreground: #8A8A93;
+    
+    --accent: #3A3A3C;
+    --accent-foreground: #F2F2F7;
+    
+    --border: #48484A;
+    --input: #48484A;
+    --ring: #D97757;
+    
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary transition-colors duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Moon, Sun, WalletCards } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';

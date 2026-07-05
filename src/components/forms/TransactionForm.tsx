@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -23,11 +23,7 @@ import {
 
 const transactionSchema = z.object({
   title: z.string().min(1, 'Title is required').trim().max(50, 'Title is too long'),
-  amount: z.coerce
-    .number({
-      required_error: 'Amount is required',
-      invalid_type_error: 'Amount must be a number',
-    })
+  amount: z.number({ message: 'Amount is required' })
     .positive('Amount must be greater than zero')
     .max(999999999999, 'Amount is too large'),
   category: z.string().min(1, 'Category is required'),
@@ -75,7 +71,7 @@ export const TransactionForm = () => {
         <CardTitle>Add Transaction</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-6">
           {/* Segmented Toggle */}
           <div className="relative flex p-1 bg-muted rounded-2xl">
             {['expense', 'income'].map((t) => (
@@ -129,7 +125,7 @@ export const TransactionForm = () => {
                 type="number"
                 step="0.01"
                 placeholder="0.00"
-                {...register('amount')}
+                {...register('amount', { valueAsNumber: true })}
                 className={errors.amount ? 'border-expense ring-expense' : ''}
               />
               <AnimatePresence>

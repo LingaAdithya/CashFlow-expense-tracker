@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Wallet } from 'lucide-react';

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { useTransactions } from '@/context/TransactionContext';
@@ -65,7 +65,7 @@ export const ExpenseChart = () => {
               ))}
             </Pie>
             <Tooltip
-              formatter={(value: number) => formatCurrency(value)}
+              formatter={(value: any) => formatCurrency(Number(value))}
               contentStyle={{
                 borderRadius: '16px',
                 border: 'none',

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode, useMemo } from 'react';
 import type { Transaction, Totals } from '@/types';
 import { loadTransactions, saveTransactions } from '@/utils/storage';
 import { calculateTotals } from '@/utils/calculateTotals';

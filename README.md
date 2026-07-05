@@ -1,32 +1,68 @@
-# React + TypeScript + Vite
+# Flow
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Flow is a modern, premium personal finance tracker built to help users seamlessly manage their income and expenses through a beautiful, calming, and highly interactive interface. 
 
-Currently, two official plugins are available:
+Designed with a "soft-matte" aesthetic, it prioritizes a peaceful user experience over traditional, cluttered financial dashboards. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Dashboard Summaries:** Real-time calculation of total balance, income, and expenses with animated number counters.
+- **Smart Insights:** Automatically generated insights based on spending habits, such as top expense categories and savings rates.
+- **Visual Analytics:** Interactive expense breakdown chart powered by Recharts.
+- **Transaction Management:** Add, view, and delete transactions with a categorized list and smooth Framer Motion animations.
+- **Data Persistence:** Instant saving to local storage ensures your financial data is retained across sessions.
+- **Theming:** Full support for system, light, and a custom warm-charcoal dark mode.
+- **Responsive Design:** A mobile-first approach ensuring a flawless experience on desktops, tablets, and smartphones.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- **Framework:** React 19, TypeScript, Vite
+- **Styling:** TailwindCSS v4 with a custom warm color palette
+- **UI Components:** Custom components built with accessibility in mind (Radix UI primitives)
+- **Animations:** Framer Motion
+- **Data Visualization:** Recharts
+- **Forms & Validation:** React Hook Form, Zod
+- **Icons:** Lucide React
+- **Date Formatting:** date-fns
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Project Structure
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+The codebase is organized modularly to separate concerns and ensure maintainability:
+
+- `src/components/` - Reusable UI components organized by domain (`ui`, `layout`, `dashboard`, `forms`).
+- `src/context/` - Global state management for Transactions and Theme.
+- `src/utils/` - Helper functions for currency formatting, calculations, and local storage.
+- `src/constants/` - Static configurations like category definitions.
+- `src/types/` - TypeScript interface definitions.
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have Node.js and npm installed on your local machine.
+
+### Installation
+
+1. Clone the repository and navigate to the project directory.
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development Server
+
+Start the Vite development server:
+```bash
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+To create an optimized production build:
+```bash
+npm run build
+```
+
+

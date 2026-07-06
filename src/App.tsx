@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { TransactionProvider } from '@/context/TransactionContext';
 
@@ -36,6 +37,7 @@ function App() {
           </main>
         </div>
       </TransactionProvider>
+      <Analytics />
     </ThemeProvider>
   );
 }
